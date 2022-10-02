@@ -1,7 +1,10 @@
 metadata:
   title: Request time off work due to domestic violence
-  short title: VESSA letter
+  short title: Request time off work
   comment:  This program helps you make a letter requesting time off work to deal with problems caused by domestic violence or sexual violence.
+  authors:
+    - Vivian McNaughton
+    - Matt Newsted
 ---
 include:
   - docassemble.AssemblyLine:assembly_line.yml
@@ -41,6 +44,8 @@ code: |
   vessa_intro_b
   set_progress(20)
   nav.set_section('section_employer')
+  if in_illinois == False:
+    out_of_state
   if govt_employer == False:
     employee_count
   employer.name.first
@@ -180,6 +185,7 @@ subject: |
   **How much time off can I get?**
 content: |
   The amount of unpaid time off you get under VESSA depends on the number of employees at your job and whether your employer is a government agency.
+  
   This program will ask you questions about your employer to determine how much time off you can get.
 ---
 id: your name
@@ -230,6 +236,33 @@ question: |
 fields:
   - Email: email_address
     datatype: email
+---
+id: in state check
+question: |
+  Do you work in Illinois?
+subquestion: |
+  ${ collapse_template(multi_state) }  
+fields:
+  - no label: in_illinois
+    datatype: yesnoradio
+---
+template: multi_state
+subject: |
+  **What if I work in multiple states?**
+content: |  
+  If your primary workplace is in Illinois, you can likely use this program. You may want to ask your employer if they are considered an Illinois Employer. Your employment contract may have this information.
+---
+id: out of state kickout
+event: out_of_state
+question: |
+  Sorry
+subquestion: |
+  This program is can only be used for employees of Illinois employers.
+  
+  You can use [**this website**](https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help) to find a legal aid organization in the same state as your employer.
+buttons:
+  - Exit: exit
+  - Restart: restart
 ---
 id: employer type
 question: |
@@ -383,10 +416,10 @@ subquestion: |
   * Seek **medical attention** for, or recovery from, physical or psychological injuries caused by domestic or sexual violence to you or your family or household members,
   * Get **survivor services** for you or your family or household members,
   * Get **counseling** for you or your family or household members, 
-  * Participate in **safety planning**, including moving to a new place, teaching your children what to do in an emergency, or other actions to increase the safety of the survivor from future domestic or sexual violence, or
+  * Participate in **safety planning**, including making plans to stay with someone if you need to move quickly, finding numbers for emergencies, or gathering your IDs and important documents, or
   * Seek **legal assistance** to ensure the health and safety of the survivor, including participating in court proceedings related to the violence.
   
-  [**Learn more about making a security plan.**](https://www.illinoislegalaid.org/legal-information/security-plan-victims-domestic-violence)
+  [**Learn more about making a security plan.**](https://www.illinoislegalaid.org/node/30281)
   
   Finish the sentence below.
 fields:
