@@ -250,7 +250,7 @@ template: multi_state
 subject: |
   **What if I work in multiple states?**
 content: |  
-  If your primary workplace is in Illinois, you can likely use this program. You may want to ask your employer if they are considered an Illinois Employer. Your employment contract may have this information.
+  If your primary workplace is in Illinois, you can likely use this program. You may want to ask your employer if they are considered an Illinois employer. Your employment contract may have this information.
 ---
 id: out of state kickout
 event: out_of_state
@@ -259,7 +259,7 @@ question: |
 subquestion: |
   This program is can only be used for employees of Illinois employers.
   
-  You can use [**this website**](https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help) to find a legal aid organization in the same state as your employer.
+  You can use [**the Legal Services Corporation website**](https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help) to find a legal aid organization in your employer's state.
 buttons:
   - Exit: exit
   - Restart: restart
