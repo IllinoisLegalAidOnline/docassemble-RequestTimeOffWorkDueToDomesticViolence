@@ -259,7 +259,7 @@ question: |
 subquestion: |
   This program is can only be used for employees of Illinois employers.
   
-  You can use [**the Legal Services Corporation website**](https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help) to find a legal aid organization in your employer's state.
+  You can use the [**Legal Services Corporation website**](https://www.lsc.gov/about-lsc/what-legal-aid/get-legal-help) to find a legal aid organization in your employer's state.
 buttons:
   - Exit: exit
   - Restart: restart
