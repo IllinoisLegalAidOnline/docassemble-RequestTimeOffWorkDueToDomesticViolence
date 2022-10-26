@@ -202,6 +202,7 @@ question: |
  What contact information do you want to include in your letter?
 fields:
   - Contact methods: contact_methods
+    required: False
     datatype: checkboxes
     choices:
       - Mail
@@ -445,7 +446,7 @@ subquestion: |
   * If you work for a private company that employs 1-14 employees, your employer must give you up to 4 weeks unpaid leave.
   * If you work for a private company that employs 15-49 people, your employer must give you up to 8 weeks unpaid leave.
   * If you work for a private company that employs 50 people or more, your employer must give you up to 12 weeks unpaid leave.
-  * If you work for a state or local government agency or a public school district, they also must give you up to 12 weeks unpaid leave.
+  * If you work for a state or local government agency or a public school district, your employer must give you up to 12 weeks unpaid leave.
 fields:
   - label: Amount of time 
     field: time_type
