@@ -64,19 +64,23 @@ code: |
   if time_type == 'subsequent':
     if start_date > end_date:
       end_date_error 
-    if govt_employer == True:
-      if int(date_difference(starting=start_date, ending=end_date).days) > 84:
-        twelve_week_error
-    if govt_employer == False:
-      if employee_count == '50 or more employees':
+    if situation == "my family member was killed in a crime of violence." or situation == "my household member was killed in a crime of violence.":
+      if int(date_difference(starting=start_date, ending=end_date).days) > 14:
+        two_week_error
+    else:
+      if govt_employer == True:
         if int(date_difference(starting=start_date, ending=end_date).days) > 84:
           twelve_week_error
-      if employee_count == '15-49 employees':
-        if int(date_difference(starting=start_date, ending=end_date).days) > 56:
-          eight_week_error
-      if employee_count == '1-14 employees':
-        if int(date_difference(starting=start_date, ending=end_date).days) > 28:
-          four_week_error
+      elif govt_employer == False:
+        if employee_count == '50 or more employees':
+          if int(date_difference(starting=start_date, ending=end_date).days) > 84:
+            twelve_week_error
+        if employee_count == '15-49 employees':
+          if int(date_difference(starting=start_date, ending=end_date).days) > 56:
+            eight_week_error
+        if employee_count == '1-14 employees':
+          if int(date_difference(starting=start_date, ending=end_date).days) > 28:
+            four_week_error
   if time_type == 'nuanced' :
     spread_out
   set_progress(80)
@@ -93,7 +97,7 @@ code: |
     user.signature
   private_employer
   set_progress(100)
-  nav.set_section('section_intro')
+  nav.set_section('section_download')
   get_docs_screen 
 ---
 id: welcome
@@ -112,7 +116,7 @@ continue button field: how_to_use
 question: |
   Instructions
 subquestion: |
-  You can use this program if you are seeking time off from work to deal with problems caused by domestic or sexual violence.
+  You can use this program if you are seeking time off from work to deal with problems caused by domestic or sexual violence. You can also use it to take time off work if a family or household member has been killed in a crime of violence.
   
   To use this program, you will need the name and address of your employer.
 
@@ -171,7 +175,7 @@ question: |
 subquestion: |
   The Victims’ Economic Security and Safety Act (VESSA) became a law in Illinois in August, 2003. VESSA describes what employers must do to help survivors of **{domestic violence}** and **{sexual violence}** keep their jobs and stay safe.
 
-  You are protected by VESSA if you are a survivor of domestic violence or sexual violence, or if you are helping a family or household member who is a survivor.
+  You are protected by VESSA if you are a survivor of domestic violence or sexual violence, or if you are helping a family or household member who is a survivor. VESSA also allows you to take time off work if your family or household member was killed by a crime of violence.
   
   ${ collapse_template(vessa_intro_b) }  
 terms:
@@ -184,7 +188,8 @@ template: vessa_intro_b
 subject: |
   **How much time off can I get?**
 content: |
-  The amount of unpaid time off you get under VESSA depends on the number of employees at your job and whether your employer is a government agency.
+  The amount of unpaid time off you get under VESSA depends on the number of employees at your job, whether your employer is a government agency, and why you are taking time off.
+  
   
   This program will ask you questions about your employer to determine how much time off you can get.
 ---
@@ -280,9 +285,11 @@ subject: |
 content: |  
   The law requires that employers provide time off based on the number of employees.
 
-  * If your employer has 1-14 employees, you can get up to 4 weeks unpaid leave.
+  * If your employer has 1-14 employees, you can get up to 4 weeks unpaid leave.
   * If your employer has 15-49 employees, you can get up to 8 weeks unpaid leave.
   * If your employer has 50 or more employees, or if you work for a government agency or a public school district, you can get up to 12 weeks unpaid leave.
+  
+  If you are taking time off because a family or household member was killed in a crime of violence, you can get up to 2 weeks unpaid leave regardless of the size of your employer.
 
   Note: the number of weeks listed above must be used within a one-year period.
 ---
@@ -407,6 +414,8 @@ fields:
       - I have experienced sexual violence.
       - I have a family member experiencing domestic or sexual violence.
       - I have a household member experiencing domestic or sexual violence.
+      - My family member was killed in a crime of violence.: my family member was killed in a crime of violence.
+      - My household member was killed in a crime of violence.: my household member was killed in a crime of violence.
 ---
 id: plan
 question: |
@@ -417,8 +426,9 @@ subquestion: |
   * Seek **medical attention** for, or recovery from, physical or psychological injuries caused by domestic or sexual violence to you or your family or household members,
   * Get **survivor services** for you or your family or household members,
   * Get **counseling** for you or your family or household members, 
-  * Participate in **safety planning**, including making plans to stay with someone if you need to move quickly, finding numbers for emergencies, or gathering your IDs and important documents, or
-  * Seek **legal assistance** to ensure the health and safety of the survivor, including participating in court proceedings related to the violence.
+  * Participate in **safety planning**, including making plans to stay with someone if you need to move quickly, finding numbers for emergencies, or gathering your IDs and important documents,
+  * Seek **legal assistance** to ensure the health and safety of the survivor, including participating in court proceedings related to the violence, or
+  * **Grieve** the death of a family or household member.
   
   [**Learn more about making a security plan.**](https://www.illinoislegalaid.org/node/30281)
   
@@ -441,12 +451,23 @@ id: time off
 question: |
   How much time do you need to take off work?
 subquestion: |
-  The amount of time your employer must give you depends on the number of employees and the type of employer.
+  The amount of time your employer must give you depends on the number of employees, the type of employer, and why you are asking for time off work.
   
-  * If you work for a private company that employs 1-14 employees, your employer must give you up to 4 weeks unpaid leave.
-  * If you work for a private company that employs 15-49 people, your employer must give you up to 8 weeks unpaid leave.
-  * If you work for a private company that employs 50 people or more, your employer must give you up to 12 weeks unpaid leave.
-  * If you work for a state or local government agency or a public school district, your employer must give you up to 12 weeks unpaid leave.
+  % if situation == "my family member was killed in a crime of violence." or situation == "my household member was killed in a crime of violence.":
+  Based on your answers, your employer must give you up to 2 weeks unpaid leave.
+  % else:
+  % if govt_employer == True:
+  Based on your answers, your employer must give you up to 12 weeks unpaid leave.
+  % else:
+  % if employee_count == "50 or more employees":
+  Based on your answers, your employer must give you up to 12 weeks unpaid leave.
+  % elif employee_count == "15-49 employees":
+  Based on your answers, your employer must give you up to 8 weeks unpaid leave.
+  % else:
+  Based on your answers, your employer must give you up to 4 weeks unpaid leave.
+  % endif
+  % endif
+  % endif
 fields:
   - label: Amount of time 
     field: time_type
@@ -485,6 +506,17 @@ subquestion: |
   Click **Back** to correct the dates you wish to request for leave.
 
   There might be holidays or other days off between ${ start_date } and ${ end_date }. If the number of business days off you are requesting is 60 or fewer, click **Next**.
+---
+id: 2 week error
+continue button field: two_week_error
+question: |
+  The time frame you requested might be too long
+subquestion: |
+  Under VESSA, you are allowed to take **only up to 2 work weeks** of unpaid leave to grieve, attend the funeral of, or make arrangements for a family or household member who was killed in a crime of violence.
+  
+   Click **Back** to correct the dates you wish to request for leave.
+
+  There might be holidays or other days off between ${ start_date } and ${ end_date }. If the number of business days off you are requesting is 10 or fewer, click **Next**.
 ---
 id: 8 week error
 continue button field: eight_week_error
@@ -699,7 +731,7 @@ review:
   - Edit: situation
     button: |
       **Your situation:**
-      ${ situation }
+      ${ capitalize(situation) }
   - Edit: off_why
     button: |
       **You will need time off in order to:**
@@ -748,6 +780,7 @@ review:
 ---
 id: section employer
 event: section_employer
+section: Your employer
 question: |
   Your employer
 subquestion: |
@@ -785,6 +818,7 @@ review:
     #show if: hr_yes
 ---
 id: section time
+section: Your time off
 event: section_time
 question: |
   Your time off
@@ -794,7 +828,7 @@ review:
   - Edit: situation
     button: |
       **Your situation:**
-      ${ situation }
+      ${ capitalize(situation) }
   - Edit: off_why
     button: |
       **You will need time off in order to:**
@@ -828,6 +862,7 @@ review:
     show if: time_type == 'nuanced'
 ---
 id: section user
+section: About you
 event: section_user
 question: |
   About you
