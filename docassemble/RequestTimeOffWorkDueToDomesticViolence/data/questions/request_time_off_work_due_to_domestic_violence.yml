@@ -126,13 +126,13 @@ subquestion: |
   
   ${ collapse_template(help_example) }  
 
-  Click on **{green words}** to learn what they mean. Some questions have a question mark in a circle ${ fa_icon("question-circle", color_css="#0DCAF0" ) } that also gives help.
+  Click on **{green words}** to learn what they mean. Some questions have a question mark in a circle ${ fa_icon("question-circle", color_css="#0DCAF0" ) } that helps explain things.
 ---
 template: help_example
 
 subject: |
 
-  **You can expand sections like this to show more information.**
+  **You can click sections like this to show more information.**
 
 content: |  
 
@@ -426,12 +426,17 @@ subquestion: |
   * Seek **medical attention** for, or recovery from, physical or psychological injuries caused by domestic or sexual violence to you or your family or household members,
   * Get **survivor services** for you or your family or household members,
   * Get **counseling** for you or your family or household members, 
-  * Participate in **safety planning**, including making plans to stay with someone if you need to move quickly, finding numbers for emergencies, or gathering your IDs and important documents,
-  * Seek **legal assistance** to ensure the health and safety of the survivor, including participating in court proceedings related to the violence, or
-  * **Grieve** the death of a family or household member.
+  * Participate in **safety planning**, including making plans to stay with someone if you need to move quickly, finding numbers for emergencies, or gathering your IDs and important documents, or
+  * Seek **legal assistance** to ensure the health and safety of the survivor, including participating in court proceedings related to the violence.
   
   [**Learn more about making a security plan.**](https://www.illinoislegalaid.org/node/30281)
+
+  If a family or household member was killed in a crime of violence, you can take time off to:
   
+  * **Attend the funeral** of the family or household member,
+  * **Arrange the funeral** of the family or household member, or
+  * **Grieve** the death of a family or household member.
+
   Finish the sentence below.
 fields:
   - 'I will need time off in order to...': off_why
