@@ -161,7 +161,7 @@ subquestion: |
   
   ${ collapse_template(help_example) }  
 
-  Click on **{green words}** to learn what they mean. Some questions have a question mark in a circle ${ fa_icon("question-circle", color_css="#0DCAF0" ) } that helps explain things.
+  Click on **{green words}** to learn what they mean. Some pages have a question mark in a circle ${ fa_icon("question-circle", color_css="#0DCAF0" ) } that helps explain things.
 ---
 template: help_example
 
@@ -228,14 +228,23 @@ content: |
   
   This program will ask you questions about your employer to determine how much time off you can get.
 ---
-id: your name
+id: user name
 question: |
   What is your name?
+subquestion: |
+    If you don't have a first name and a last name, you can enter your name in the field labeled **First** and leave the other fields blank.
 fields:
   - First: user.name.first
   - Middle: user.name.middle
     required: False
   - Last: user.name.last
+    required: False
+  - Suffix: user.name.suffix
+    help: |
+      Some names have a suffix after the last name, such as "Senior," "III," or "Jr." If your name does not have a suffix, you can leave this blank.
+    code: |
+      name_suffix()
+    required: False
 ---
 id: contact method
 question: |
@@ -348,9 +357,17 @@ sets:
 id: employer name
 question: |
   What is the name of your employer?
+subquestion: |
+  ${collapse_template(long_name_help)}
 fields:
   - code: |
       employer.name_fields(person_or_business='unsure')
+---
+template: long_name_help
+subject: |
+  **What if I need more space?**
+content: |
+  If the person has a long name like "Jane Elisa Carol Smith, CPA," select **Business or organization**. You can then enter the full name and title.
 ---
 id: employer address
 question: |
