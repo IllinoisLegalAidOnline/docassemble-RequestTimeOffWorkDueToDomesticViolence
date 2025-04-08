@@ -141,7 +141,7 @@ question: |
 subquestion: |
   Welcome to Illinois Legal Aid Online's **Request time off work due to domestic violence** Easy Form.
 
-  This program helps you make a letter requesting time off work to deal with problems caused by domestic violence or sexual violence.
+  This program helps you make a letter requesting time off work to deal with problems caused by domestic violence, sexual violence, stalking, gender-based violence, or any other crime of violence.
   
   The letter you create can only be used in Illinois.
 field: sees_nav_bar
@@ -151,7 +151,7 @@ continue button field: how_to_use
 question: |
   Instructions
 subquestion: |
-  You can use this program if you are seeking time off from work to deal with problems caused by domestic or sexual violence. You can also use it to take time off work if a family or household member has been killed in a crime of violence.
+  You can use this program if you are seeking time off from work to deal with domestic violence, sexual violence, stalking, gender-based violence, or any other crime of violence. You can also use it to take time off work if a family or household member has been killed in a crime of violence.
   
   To use this program, you will need the name and address of your employer.
 
@@ -208,7 +208,7 @@ continue button field: vessa_intro_a
 question: |
   Legal protections for time off
 subquestion: |
-  The Victims’ Economic Security and Safety Act (VESSA) became a law in Illinois in August, 2003. VESSA describes what employers must do to help survivors of **{domestic violence}** and **{sexual violence}** keep their jobs and stay safe.
+  The Victims’ Economic Security and Safety Act (VESSA) became a law in Illinois in August, 2003. VESSA describes what employers must do to help survivors of **{domestic violence}**, **{sexual violence}**, **{stalking}**, **{gender-based violence}**, or any other crime of violence keep their jobs and stay safe.
 
   You are protected by VESSA if you are a survivor of domestic violence or sexual violence, or if you are helping a family or household member who is a survivor. VESSA also allows you to take time off work if your family or household member was killed by a crime of violence.
   
@@ -218,6 +218,10 @@ terms:
     Sexual violence can be sexual assault, non-consensual sexual acts, or sex with a minor.
   domestic violence: |
     Domestic violence can be physical abuse, harassment, or intimidation of family or other household members.
+  stalking: |
+    Stalking is when someone acts in a way they know, or should know, would make a normal person scared for their safety or feel emotional distress.
+  gender-based violence: |
+    Gender-based violence is violence targetting someone because of their sex or gender.
 ---
 template: vessa_intro_b
 subject: |
@@ -464,8 +468,10 @@ fields:
     choices:
       - I have experienced domestic violence.
       - I have experienced sexual violence.
-      - I have a family member experiencing domestic or sexual violence.
-      - I have a household member experiencing domestic or sexual violence.
+      - I have experienced gender-based violence.
+      - I have been a victim of stalking.
+      - I have a family member experiencing violence.
+      - I have a household member experiencing violence.
       - My family member was killed in a crime of violence.: my family member was killed in a crime of violence.
       - My household member was killed in a crime of violence.: my household member was killed in a crime of violence.
 ---
@@ -475,7 +481,7 @@ question: |
 subquestion: |
   You can take time off to:
 
-  * Seek **medical attention** for, or recovery from, physical or psychological injuries caused by domestic or sexual violence to you or your family or household members,
+  * Seek **medical attention** for, or recovery from, physical or psychological injuries caused by sexual violence to you or your family or household members,
   * Get **survivor services** for you or your family or household members,
   * Get **counseling** for you or your family or household members, 
   * Participate in **safety planning**, including making plans to stay with someone if you need to move quickly, finding numbers for emergencies, or gathering your IDs and important documents, or
