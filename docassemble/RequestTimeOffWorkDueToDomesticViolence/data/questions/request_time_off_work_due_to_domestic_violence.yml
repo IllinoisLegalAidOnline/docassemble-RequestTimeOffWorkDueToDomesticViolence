@@ -1,7 +1,7 @@
 metadata:
-  title: Request time off work due to domestic violence
+  title: Request time off work after surviving violence
   short title: Request time off work
-  comment:  This program helps you make a letter requesting time off work to deal with problems caused by domestic violence or sexual violence.
+  comment:  This program helps you make a letter requesting time off work to deal with problems caused by domestic violence, sexual violence, or other violence.
   authors:
     - Vivian McNaughton
     - Matt Newsted
@@ -32,7 +32,7 @@ sections:
 # interview order block
 mandatory: True
 code: |
-  ilao_easy_form_title = "Request time off work due to domestic violence"
+  ilao_easy_form_title = "Request time off work after surviving violence"
   ilao_easy_form_url = "https://www.illinoislegalaid.org/legal-information/request-time-work-due-domestic-abuse-letter"
   nav.set_section('section_intro')
   sees_nav_bar
@@ -137,9 +137,9 @@ code: |
 ---
 id: welcome
 question: |
-  Request time off work due to domestic violence
+  Request time off work after surviving to violence
 subquestion: |
-  Welcome to Illinois Legal Aid Online's **Request time off work due to domestic violence** Easy Form.
+  Welcome to Illinois Legal Aid Online's **Request time off work after surviving violence** Easy Form.
 
   This program helps you make a letter requesting time off work to deal with problems caused by domestic violence, sexual violence, stalking, gender-based violence, or any other crime of violence.
   
@@ -698,7 +698,7 @@ under: |
 generic object: ALDocumentBundle
 template: x.send_email_template
 subject: |
-  Request time off work due to domestic violence
+  Request time off work after surviving violence
 content: |
   Your forms are attached.
   
